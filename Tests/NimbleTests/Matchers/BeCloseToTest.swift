@@ -139,4 +139,10 @@ final class BeCloseToTest: XCTestCase {
             expect([0.1, 1.2]).to(beCloseTo([0.3, 1.3], within: 0.1))
         }
     }
+
+    // https://github.com/Quick/Nimble/issues/831
+    func testCombinationWithAllPass() {
+        let values: [NSNumber] = [0]
+        expect(values).to(allPass(beCloseTo(0)))
+    }
 }
